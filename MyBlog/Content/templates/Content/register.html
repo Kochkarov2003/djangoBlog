@@ -1,0 +1,25 @@
+{% extends 'Content/base.html' %}
+
+{% block mainmenu %}
+<div >
+    <a  href="Content/main_id=0"><h3>{{main.name}}</h3></a>
+  </div>
+ {% for main in category %}
+ <div >
+   <a  href="{% url 'cat' main.id %}"><h3>{{main.name}}</h3></a>
+ </div>
+ {% endfor %}
+{% endblock %}
+
+
+{% block title %}Create an account{% endblock %}
+
+{% block register1 %}
+    <h1>Create an account</h1>
+    <p>Please, sign up using the following form:</p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create my account"></p>
+    </form>
+{% endblock %}

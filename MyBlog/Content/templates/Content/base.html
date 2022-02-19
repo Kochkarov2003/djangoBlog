@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{% static 'Content/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'Content/css/style.css'%}">
+    <title>MyBlog</title>
+</head>
+<body>
+    
+    <div class=logo>       
+        <h1 class="logo">My_<span class="blog">blog</span> </h1>
+        <img width="150px" src="{% static 'Content/imgs/book.png'%}" alt="">
+         
+   </div>
+   {% if request.user.is_authenticated %}
+   <div class="auth_r">
+    <button class="btn" > <a   href="">{{request.user.username}}</a></button>
+    <button class="btn" > <a   href="{% url 'log_out' %}">Выйти</a></button>
+    </div>
+    {% else %}
+   <div class="auth_r">
+    <button class="btn" > <a   href="{% url 'register' %}"> Регистрация </a></button>
+    <button class="btn"  > <a  href="{% url 'login' %}"> Войти </a></button>
+    </div>
+    {% endif %}
+    <div class="conteyner">
+        <div class="header"> 
+        {% block mainmenu %} 
+        <div >
+            <a  href="Content/main_id=0"><h3>{{main.name}}</h3></a>
+          </div>
+         {% for main in category %}
+         <div >
+           <a  href="{% url 'cat' main.id %}"><h3>{{main.name}}</h3></a>
+         </div>
+         {% endfor %}
+           
+        {% endblock %}
+        </div> 
+    <div class = "posts ">
+       {% block content %} 
+       {% endblock %}
+    </div>
+    <div class = 'one_post'>
+        {% block one_post %} 
+        {% endblock %} 
+         <div class="forms">
+            <div class="registration">
+             {% block register1 %}
+             {% endblock %}
+            </div>
+            <div class="welcom">
+                {% block Welcome %}
+                {% endblock %}
+            </div>  
+        </div>
+         
+        
+    </div>
+    <div class="login">
+        {% block login %}
+        {% endblock %}
+    </div>
+</div>
+<script src="{% static 'Content/js/main.js'%}"></script>
+</body>
+</html>

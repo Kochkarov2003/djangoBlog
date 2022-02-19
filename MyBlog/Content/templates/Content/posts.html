@@ -1,0 +1,28 @@
+{% extends 'Content/base.html' %}
+
+    
+    {% block mainmenu %}
+    <div >
+        <a  href="Content/main_id=0"><h3>{{main.name}}</h3></a>
+      </div>
+     {% for main in category %}
+     <div >
+       <a  href="{% url 'cat' main.id %}"><h3>{{main.name}}</h3></a>
+     </div>
+     {% endfor %}
+    {% endblock %}
+
+{%  block content %}
+
+    {% for post in posts %}
+     <a class="main" href="{% url 'one_post' post.id %}"><h3 align = 'center'>{{post.title}}</h3></a>
+     <p>{{post.content}}</p>
+     <h5>{{post.date|date:"d-m-Y"}}</h5>
+     {% endfor %}
+
+
+
+   
+   
+{% endblock %}
+

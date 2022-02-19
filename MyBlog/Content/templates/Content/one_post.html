@@ -1,0 +1,53 @@
+{% extends 'Content/base.html' %}
+
+{% block mainmenu %}
+<div >
+    <a  href="Content/main_id=0"><h3>{{main.name}}</h3></a>
+  </div>
+ {% for main in category %}
+ <div >
+   <a  href="{% url 'cat' main.id %}"><h3>{{main.name}}</h3></a>
+ </div>
+ {% endfor %}
+{% endblock %}    
+
+{% block one_post %}
+    
+     <a class="main" href="{% url 'one_post' post.id %}"><h3 class="main" align = 'center'>{{post.title}}</h3></a>
+     <p>{{post.content}}</p>
+     <h5>{{post.date|date:"d-m-Y"}}</h5>
+
+
+
+
+     {% with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+{% endwith %}
+
+     {% if new_comment %}
+     <h2>Your comment has been added.</h2>
+ {% else %}
+     <h2>Add a new comment</h2>
+     <form action="" method="post">
+         {{ comment_form.as_p }}
+         {% csrf_token %}
+         <p><input type="submit" value="Add comment"></p>
+     </form>
+ {% endif %}
+ {% for comment in comments %}
+    <div class="comment">
+        <p class="info">
+            Comment {{ forloop.counter }} by {{ comment.name }}
+            {{ comment.created }}
+        </p>
+        {{ comment.body|linebreaks }}
+    </div>
+{% empty %}
+    <p>There are no comments yet.</p>
+{% endfor %}
+     
+   
+   
+{% endblock %}
