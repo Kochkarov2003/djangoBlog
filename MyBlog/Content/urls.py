@@ -2,6 +2,7 @@ from . import views
 from django.urls import path
 from Content.views import *
 
+
 urlpatterns = [
     path('',views.index, name='index' ),
     path('f/<int:id>/',views.category_by_id,name = 'cat'),
