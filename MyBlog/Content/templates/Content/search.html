@@ -1,0 +1,32 @@
+{% extends 'Content/base.html' %}
+
+{% block mainmenu %}
+<div >
+    <a  href="Content/main_id=0"><h3>{{main.name}}</h3></a>
+  </div>
+ {% for main in category %}
+ <div >
+   <a  href="{% url 'cat' main.id %}"><h3>{{main.name}}</h3></a>
+ </div>
+ {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+<div class="search">
+<center>
+    {% if searched %}
+        <h3>You searched {{searched}}</h3>
+         {% for venue in venues %}
+            <p>{{venue}}</p>
+         {% endfor %}
+      
+
+    {% else %}
+        <h3>Your fofgot serched</h3>
+
+    {% endif %}
+</center>
+</div>
+
+{% endblock %}
