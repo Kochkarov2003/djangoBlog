@@ -2,8 +2,7 @@ body{
     padding: 0;
     margin:0;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
-    background: linear-gradient(180deg,#e611c2,#ffe602) no-repeat;
+    background: linear-gradient(180deg,#7748fa,#f7de00) no-repeat;
 }
 
 .conteyner{
@@ -17,6 +16,7 @@ a h3{
 }
 a {
     text-decoration: none;
+    color:rgb(0, 0, 0);
     
 }
 .header{
@@ -49,22 +49,17 @@ a {
     color: rgb(255, 217, 0);
    
 }
-.btn{
-    padding: 5px 40px;
-    margin-left: 5px;
-    background: linear-gradient(180deg,#ffffff,#ffe602) no-repeat;
-    border: 0;
-    border-radius: 25px 0 25px 0;
-    margin-top: -35px;
+
     
-}
-.btn a {
+
+
+.btn1 a {
     font-weight: 500;
     color:black;
 
 }
-.auth_r{
-    margin-left: 950px;
+.auth_r {
+    margin-left: 738px;
     margin-top: 10px;
     display: flex;
 }
@@ -77,3 +72,25 @@ a {
 .forms{
     display: block;
 }
+.search{
+    width: 90px;
+    height: 80px;
+}
+.btn_search{
+    margin: 0;
+}
+.btn{
+    padding: 5px 40px;
+    margin-left: 5px;
+    background: linear-gradient(180deg,#ffffff,#ffe602) no-repeat;
+    border: 0;
+    border-radius: 25px 0 25px 0;
+   
+}
+.like{
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0) ;
+    border: 3px solid rgba(255, 0, 0, 0.979);
+
+}
+

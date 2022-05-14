@@ -1,0 +1,25 @@
+{% extends 'Content/base.html' %}
+
+{% block mainmenu %}
+<div >
+    <a  href="Content/main_id=0"><h3>{{main.name}}</h3></a>
+  </div>
+ {% for main in category %}
+ <div >
+   <a  href="{% url 'cat' main.id %}"><h3>{{main.name}}</h3></a>
+ </div>
+ {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+<h3>Add post</h3>
+
+<form  method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>Создать пост </button>
+
+</form>
+
+{% endblock %}

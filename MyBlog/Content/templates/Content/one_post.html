@@ -1,4 +1,5 @@
 {% extends 'Content/base.html' %}
+{% load static %}
 
 {% block mainmenu %}
 <div >
@@ -17,7 +18,15 @@
      <p>{{post.content}}</p>
      <h5>{{post.date|date:"d-m-Y"}}</h5>
 
-
+    {% if liked %}
+         <a class="" href="{% url 'like_post' post.id %}"> <img width="25px" src="{% static 'Content/imgs/unlike.png'%}" alt=""> </a> 
+        
+    
+    {% else %}     
+         <a class="" href="{% url 'like_post' post.id %}"> <img width="25px"  src="{% static 'Content/imgs/like.png'%}" alt=""> </a> 
+    {% endif %}     
+  
+    - {{ counts }} Likes
 
 
      {% with comments.count as total_comments %}

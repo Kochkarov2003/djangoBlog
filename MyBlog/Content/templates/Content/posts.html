@@ -17,7 +17,16 @@
     {% for post in posts %}
      <a class="main" href="{% url 'one_post' post.id %}"><h3 align = 'center'>{{post.title}}</h3></a>
      <p>{{post.content}}</p>
+     
      <h5>{{post.date|date:"d-m-Y"}}</h5>
+     <br><br>
+    
+
+
+
+
+
+
      {% endfor %}
 
 
